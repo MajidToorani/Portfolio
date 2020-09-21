@@ -30,6 +30,12 @@ class Article extends Page{
             $("article").append(
                 `<section id="${aPages[n].title}"></section>`
             );
+            const sPage = aPages[n];
+            if(sPage.specialImage){
+                $("article").append(`
+                <img src="${sPage.specialImage}" />
+                `)
+            }
             new Section(aPages[n]).render();
         }
     }
