@@ -1,1 +1,1 @@
-this would be the index page
+This would be the index page
