@@ -50,7 +50,10 @@ class Nav extends Page{
     render(){
         let sMenu = "";
         for(let n = 0; n < aPages.length; n++){
-            sMenu += `<li><a href="#${aPages[n].title}">${aPages[n].title}</a></li>`;
+            const sMenuItem = aPages[n].title;
+            if(sMenuItem != "index"){
+                sMenu += `<li><a href="#${sMenuItem}">${sMenuItem}</a></li>`;
+            }            
         }
 
         $("nav").html(`

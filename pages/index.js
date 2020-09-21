@@ -1,5 +1,5 @@
 export default [
 {"title":"index", "fname":"index.md"},
-{"title":"about", "fname":"about.md"},
-{"title":"contact", "fname":"contact.md"}
+{"title":"About", "fname":"about.md"},
+{"title":"Contact", "fname":"contact.md"}
 ];
