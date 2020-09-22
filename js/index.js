@@ -21,7 +21,6 @@ class Items extends Page{
             $("article#current").html("");
             $("article#items").html("");
             this.render();
-
         });
     }
     render(){
@@ -34,7 +33,6 @@ class Items extends Page{
             )
 
         })
-
         for(let n = 0; n < this.oItems.length; n++){
             if(n != this.nCurrentItem){
                 $("article#items").append(`
@@ -46,28 +44,28 @@ class Items extends Page{
     }
 }
 
-class Section extends Page{
-    constructor(oOptions){
+class Section extends Page {
+    constructor(oOptions) {
         super();
         this.oOptions = oOptions;
     }
-    render(){
+    render() {
         if (this.oOptions.specialImage) {
             $(`#${this.oOptions.title}`).append(`
             <img src="${this.oOptions.specialImage}" />
             `);
         }
-        $.get(`/pages/${this.oOptions.fname}`, (sMarkdown)=>{
-            $(`#${this.oOptions.title}`).html(
+        $.get(`/pages/${this.oOptions.fname}`, (sMarkdown) => {
+            $(`#${this.oOptions.title}`).append(
                 marked(sMarkdown)
-            )    
+            )
         })
     }
 }
 
-class Article extends Page{
-    render(){
-        for(let n = 0; n < aPages.length; n++){
+class Article extends Page {
+    render() {
+        for (let n = 0; n < aPages.length; n++) {
             $("article#pages").append(
                 `<section id="${aPages[n].title}"></section>`
             );
@@ -78,8 +76,8 @@ class Article extends Page{
 
 const sName = "Majid Tooranisama";
 
-class Footer extends Page{
-    render(){
+class Footer extends Page {
+    render() {
         const yToday = new Date().getFullYear();
         $("footer").html(
             `&copy; ${yToday} ${sName}`
@@ -87,14 +85,14 @@ class Footer extends Page{
     }
 }
 
-class Nav extends Page{
-    render(){
+class Nav extends Page {
+    render() {
         let sMenu = "";
-        for(let n = 0; n < aPages.length; n++){
+        for (let n = 0; n < aPages.length; n++) {
             const sMenuItem = aPages[n].title;
-            if(sMenuItem != "index"){
+            if (sMenuItem != "index") {
                 sMenu += `<li><a href="#${sMenuItem}">${sMenuItem}</a></li>`;
-            }            
+            }
         }
 
         $("nav").html(`
@@ -106,7 +104,7 @@ class Nav extends Page{
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#home">Portfolio of ${sName}</a>
+                <a class="navbar-brand" href="#">Portfolio of ${sName}</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -114,13 +112,12 @@ class Nav extends Page{
                 </ul>
             </div>
         </div>
-
         `);
     }
 }
 
-class Portfolio extends Page{
-    constructor(){
+class Portfolio extends Page {
+    constructor() {
         super();
         this.header = new Page();
         this.nav = new Nav();
@@ -128,7 +125,7 @@ class Portfolio extends Page{
         this.article = new Article();
         this.footer = new Footer();
     }
-    render(){
+    render() {
         this.header.render();
         this.nav.render();
         this.items.render();

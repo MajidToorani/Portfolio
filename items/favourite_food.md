@@ -1,1 +1,1 @@
-This is an article about favourite foods
+This is an article about favorite foods

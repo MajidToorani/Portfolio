@@ -1,1 +1,1 @@
-This is an article about a favourite day.
+This is an article about a favorite day.
