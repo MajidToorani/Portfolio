@@ -2,10 +2,47 @@ import "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.1/marked.js";
 import "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js";
 import aPages from "../pages/index.js";
+import aItems from "../items/index.js";
 
 class Page {
     render(){
         console.log("render called on page");
+    }
+}
+
+class Items extends Page{
+    constructor(oItems) {
+        super();
+        this.oItems = oItems;
+        this.nCurrentItem = 0;
+        $("article#items").click((evt) =>{
+            evt.preventDefault();
+            this.nCurrentItem = evt.target.id[4];
+            $("article#current").html("");
+            $("article#items").html("");
+            this.render();
+
+        });
+    }
+    render(){
+        $("article#current").append(`
+            <img src="${this.oItems[this.nCurrentItem].specialImage}" />
+        `);
+        $.get(`/items/${this.oItems[this.nCurrentItem].fname}`, (sMarkdown) => {
+            $("article#current").append(
+                marked(sMarkdown)
+            )
+
+        })
+
+        for(let n = 0; n < this.oItems.length; n++){
+            if(n != this.nCurrentItem){
+                $("article#items").append(`
+                <div class="item"><a class="itemLink" href="#">
+                <img id="item${n}" src="${this.oItems[n].specialImage}" /></a></div>
+                `);
+           }
+        }
     }
 }
 
@@ -15,11 +52,15 @@ class Section extends Page{
         this.oOptions = oOptions;
     }
     render(){
+        if (this.oOptions.specialImage) {
+            $(`#${this.oOptions.title}`).append(`
+            <img src="${this.oOptions.specialImage}" />
+            `);
+        }
         $.get(`/pages/${this.oOptions.fname}`, (sMarkdown)=>{
             $(`#${this.oOptions.title}`).html(
                 marked(sMarkdown)
-            )
-    
+            )    
         })
     }
 }
@@ -27,15 +68,9 @@ class Section extends Page{
 class Article extends Page{
     render(){
         for(let n = 0; n < aPages.length; n++){
-            $("article").append(
+            $("article#pages").append(
                 `<section id="${aPages[n].title}"></section>`
             );
-            const sPage = aPages[n];
-            if(sPage.specialImage){
-                $("article").append(`
-                <img src="${sPage.specialImage}" />
-                `)
-            }
             new Section(aPages[n]).render();
         }
     }
@@ -89,12 +124,14 @@ class Portfolio extends Page{
         super();
         this.header = new Page();
         this.nav = new Nav();
+        this.items = new Items(aItems);
         this.article = new Article();
         this.footer = new Footer();
     }
     render(){
         this.header.render();
         this.nav.render();
+        this.items.render();
         this.article.render();
         this.footer.render();
     }
