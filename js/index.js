@@ -90,7 +90,7 @@ class Nav extends Page {
         let sMenu = "";
         for (let n = 0; n < aPages.length; n++) {
             const sMenuItem = aPages[n].title;
-            if (sMenuItem != "index") {
+            if (sMenuItem != "Index") {
                 sMenu += `<li><a href="#${sMenuItem}">${sMenuItem}</a></li>`;
             }
         }
