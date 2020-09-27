@@ -20,9 +20,15 @@ img{
     width: 100%;
 }
 
+article#pages img{
+    width: 50%;
+    height: 50%;
+}
+
 footer{
     position: relative;
     background-color: black;
     color: white;
     text-align: center;
+    margin-bottom: 10px;
 }
