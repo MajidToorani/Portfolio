@@ -1,1 +1,2 @@
-This would be the about page
+I am student of third year of IT Innovation and Design from Conestoga College. 
+My skills are C#, JavaScript, HTML, CSS, JAVA, PHP, XAML, MySql, MS Access, UI designer and UX designer using AdobeXd, JustInMind and Balsamiq Wireframes.

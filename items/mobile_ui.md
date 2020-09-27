@@ -1,1 +1,1 @@
-This is an article about a favorite day.
+This project demonstrates the UI development using JustInMind app to prototype an mobile app.
