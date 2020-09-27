@@ -1,3 +1,4 @@
-export default [{"id": "item1", "title":"Favourite Food", "fname":"favourite_food.md", "specialImage":"/img/FavouriteFoodBaskets750x500_xraj9x.png"},
-{"id": "item2", "title":"Favourite Day", "fname":"favourite_day.md", "specialImage":"/img/FavouriteDay750x500_pdni4p.png"},
-{"id": "item3", "title":"Lame Games", "fname":"lame_games.md", "specialImage":"/img/twiliobot750x500_z7anzp.png"}];
+export default [{"id": "item1", "title":"Website development", "fname":"website_dev.md", "specialImage":"/img/portfolio-1.JPG"},
+{"id": "item2", "title":"Mobile UI Prototyping", "fname":"mobile_ui.md", "specialImage":"/img/portfolio-2.JPG"},
+{"id": "item3", "title":"C# Programming", "fname":"c_programming.md", "specialImage":"/img/portfolio-3.JPG"},
+{"id": "item4", "title":"Database development", "fname":"database_dev.md", "specialImage":"/img/portfolio-4.JPG"}];
