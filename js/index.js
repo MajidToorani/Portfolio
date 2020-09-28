@@ -107,7 +107,7 @@ class Nav extends Page {
         let sMenu = "";
         for (let n = 0; n < aPages.length; n++) {
             const sMenuItem = aPages[n].title;
-            if (sMenuItem != "index") {
+            if (sMenuItem != "Index") {
                 sMenu += `<li><a href="#${sMenuItem}">${sMenuItem}</a></li>`;
             }
         }
@@ -121,7 +121,7 @@ class Nav extends Page {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Portfolio of ${this.sName}</a>
+                <a class="navbar-brand" href="index">Portfolio of ${this.sName}</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
