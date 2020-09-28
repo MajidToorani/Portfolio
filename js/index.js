@@ -27,7 +27,7 @@ class Items extends Page{
         $("article#current").append(`
             <img src="${this.oItems[this.nCurrentItem].specialImage}" />
         `);
-        $.get(`/items/${this.oItems[this.nCurrentItem].fname}`, (sMarkdown) => {
+        $.get(`/portfolio/items/${this.oItems[this.nCurrentItem].fname}`, (sMarkdown) => {
             $("article#current").append(
                 marked(sMarkdown)
             )
@@ -55,7 +55,7 @@ class Section extends Page {
             <img src="${this.oOptions.specialImage}" />
             `);
         }
-        $.get(`/pages/${this.oOptions.fname}`, (sMarkdown) => {
+        $.get(`/portfolio/pages/${this.oOptions.fname}`, (sMarkdown) => {
             $(`#${this.oOptions.title}`).append(
                 marked(sMarkdown)
             )
